@@ -13,7 +13,33 @@
     <label>Order Amount (SGD)</label>
     <input type="number" id="price" placeholder="Enter Order Amount"> 
     <label>Order Weight (kg)</label>
-    <input type="number" id="weight" placeholder="Enter Order Weight"> 
+    <select id="weight">
+        <option value="2.30"> Less than 1 kg</option>
+        <option value="3.21">1-5 kg</option>
+        <option value="3.79">5-10 kg</option>
+        <option value="6.07">10-20 kg</option>
+        <option value="11.20">20-30 kg</option>
+    </select>
+
+    <p></p>
+    <label>Seller Type: </label>
+    <input type="radio" id="nonMall" name="sellerType" value="nonMall" checked>
+    <label for="nonMall">Non-mall</label>
+    <input type="radio" id="mall" name="sellerType" value="mall">
+    <label for="mall">Mall Seller</label>
+    <p></p>
+    <label>Fulfilment Type: </label>
+    <input type="radio" id="nonFBS" name="fulfilType" value="nonFBS" checked>
+    <label for="nonFBS">Non-FBS</label>
+    <input type="radio" id="FBS" name="fulfilType" value="FBS">
+    <label for="FBS">FBS Seller</label>
+    <p></p>
+    <label>Coins Cashback Programme: </label>
+    <input type="radio" id="nonCCP" name="ccpType" value="nonCCP">
+    <label for="nonCCP">Non-CCP</label>
+    <input type="radio" id="CCP" name="ccpType" value="CCP" checked>
+    <label for="CCP">CCP Seller</label>
+
 
     <p></p>
     <label>Product Category</label>
@@ -21,6 +47,7 @@
         <option value="2.5">Home & Living</option>
         <option value="3.0">Bathroom</option>
     </select>
+    
 <div>
     <h2>Results</h2>
     <p>Test: <span id="price"></span></p>
