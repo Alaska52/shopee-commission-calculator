@@ -10,8 +10,11 @@
     <p>Calculate your earnings after Shopee fees</p>
     <p>Enter Price and Category below</p>
 
-    <label>Selling Price (SGD)</label>
-    <input type="number" id="price" placeholder="0.00"> 
+    <label>Order Amount (SGD)</label>
+    <input type="number" id="price" placeholder="Enter Order Amount"> 
+    <label>Order Weight (kg)</label>
+    <input type="number" id="weight" placeholder="Enter Order Weight"> 
+
     <p></p>
     <label>Product Category</label>
     <select id="category">
@@ -33,7 +36,29 @@
 
 <script>
     const priceInput = document.getElementById('price');
-
+    const categorySelect = document.getElementById('category');
+    
+    function calculate() {
+        const price = parseFloat(priceInput.value) || 0;
+        const commissionRate = parseFloat(categorySelect.value);
+        
+        const commissionFee = price * (commissionRate / 100);
+        const transactionFee = price * 0.02;
+        const serviceFee = 0.30;
+        const totalFees = commissionFee + transactionFee + serviceFee;
+        const youReceive = price - totalFees;
+        
+        document.getElementById('displayPrice').textContent = `SGD ${price.toFixed(2)}`;
+        document.getElementById('commissionFee').textContent = `SGD ${commissionFee.toFixed(2)}`;
+        document.getElementById('transactionFee').textContent = `SGD ${transactionFee.toFixed(2)}`;
+        document.getElementById('totalFees').textContent = `SGD ${totalFees.toFixed(2)}`;
+        document.getElementById('youReceive').textContent = `SGD ${youReceive.toFixed(2)}`;
+    }
+    
+    priceInput.addEventListener('input', calculate);
+    categorySelect.addEventListener('change', calculate);
+    
+    calculate();
 </script>
 
 </html>
